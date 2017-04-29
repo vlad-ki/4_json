@@ -1,4 +1,5 @@
 import json
+from os.path import exists
 from sys import argv
 
 
@@ -9,8 +10,10 @@ def main():
 
 
 def load_data(filepath):
-    with open(filepath) as fh:
-        json_file = json.load(fh)
+    if not exists(filepath):
+        return None
+    with open(filepath) as file_handler:
+        json_file = json.load(file_handler)
         return json_file
 
 
