@@ -5,16 +5,16 @@ from sys import argv
 
 def main():
     filepath = argv[1]
-    data = load_data(filepath)
-    pretty_print_json(data)
+    json_object = load_data(filepath)
+    pretty_print_json(json_object)
 
 
 def load_data(filepath):
     if not exists(filepath):
         return None
     with open(filepath) as file_handler:
-        json_file = json.load(file_handler)
-        return json_file
+        json_object = json.load(file_handler)
+        return json_object
 
 
 def pretty_print_json(data):
